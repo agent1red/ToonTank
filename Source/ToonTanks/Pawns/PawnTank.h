@@ -15,12 +15,28 @@ class TOONTANKS_API APawnTank : public APawnBase
 	GENERATED_BODY()
 
 	private: 
-	
+
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		USpringArmComponent* SpringArm;
 		
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		UCameraComponent* Camera;
+
+		FVector MoveDirection;
+		FQuat RotationDirection;
+
+		float MoveSpeed = 100.0f;
+		float RotateSpeed = 100.0f;
+
+		//Bound to movment function (Forward = 1, Backward = -1) axis binding input
+		void CalculateMoveInput(float Value);
+
+		//Bound to rotation axis binding input
+		void CalculateRotateInput(float Value);
+
+		// called on the run tick for moving or rotation based on the calculate functions 
+		void Move();
+		void Rotate();
 
 	public:
 
