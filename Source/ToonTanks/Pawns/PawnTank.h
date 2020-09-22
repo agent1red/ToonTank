@@ -25,7 +25,9 @@ class TOONTANKS_API APawnTank : public APawnBase
 		FVector MoveDirection;
 		FQuat RotationDirection;
 
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement" , meta = (AllowPrivateAccess = "true"));
 		float MoveSpeed = 100.0f;
+		UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement" , meta = (AllowPrivateAccess = "true"));		
 		float RotateSpeed = 100.0f;
 
 		//Bound to movment function (Forward = 1, Backward = -1) axis binding input
