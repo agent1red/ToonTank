@@ -15,33 +15,24 @@ class TOONTANKS_API APawnBase : public APawn
 
 private:
 
-	// root component general collision for pawn - forward declared
-	UPROPERTY()
+	// root component and general collision for pawn - forward declared
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCapsuleComponent* CapsuleComp;
 
 	//Base (Or bottom of tank)
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
 
 	//Turret component
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurretMesh;
 
 	//Pojectile spawned from where to fire bullets
-	UPROPERTY()	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))	
 	USceneComponent* ProjectileSpawnPoint;
 
 public:
 	// Sets default values for this pawn's properties
 	APawnBase();
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
+	
 };
