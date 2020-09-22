@@ -6,11 +6,30 @@
 #include "GameFramework/Pawn.h"
 #include "PawnBase.generated.h"  
 
+class UCapsuleComponent;
 
 UCLASS()
 class TOONTANKS_API APawnBase : public APawn
 {
 	GENERATED_BODY()
+
+private:
+
+	// root component general collision for pawn - forward declared
+	UPROPERTY()
+	UCapsuleComponent* CapsuleComp;
+
+	//Base (Or bottom of tank)
+	UPROPERTY()
+	UStaticMeshComponent* BaseMesh;
+
+	//Turret component
+	UPROPERTY()
+	UStaticMeshComponent* TurretMesh;
+
+	//Pojectile spawned from where to fire bullets
+	UPROPERTY()	
+	USceneComponent* ProjectileSpawnPoint;
 
 public:
 	// Sets default values for this pawn's properties
