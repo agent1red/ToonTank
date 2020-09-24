@@ -26,6 +26,12 @@ void APawnTurret::BeginPlay()
 
 }
 
+void APawnTurret::HandleDestruction() 
+{
+    Super::HandleDestruction();
+    Destroy();
+}
+
 
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
