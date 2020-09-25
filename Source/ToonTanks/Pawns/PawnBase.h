@@ -7,6 +7,7 @@
 #include "PawnBase.generated.h"  
 
 class UCapsuleComponent;
+class AProjectileBase;
 
 UCLASS()
 class TOONTANKS_API APawnBase : public APawn
@@ -28,8 +29,12 @@ private:
 	UStaticMeshComponent* TurretMesh;
 
 	//Pojectile spawned from where to fire bullets
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+		
 	USceneComponent* ProjectileSpawnPoint;
+	// VARIABLES
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category ="Projectile Type", meta = (AllowPrivateAccess = "True"))
+	TSubclassOf<AProjectileBase> ProjectileClass;
 
 public:
 	// Sets default values for this pawn's properties
